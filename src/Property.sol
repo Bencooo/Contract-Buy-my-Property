@@ -29,7 +29,6 @@ contract Property is ERC721{
     }
 
     function transfer(address _to,uint256 _propertyID) public {
-        require(_owners[_propertyID] == msg.sender,"You're not the owner");
         transferFrom(msg.sender,_to,_propertyID);
     }
 
