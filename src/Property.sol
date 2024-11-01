@@ -5,6 +5,8 @@ import {ERC721} from '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 
 contract Property is ERC721{
     
+    error POSITION_ALREADY_USED(uint256,uint256);
+
     address private _owner;
     
     struct Position{
@@ -15,6 +17,7 @@ contract Property is ERC721{
     mapping(uint256 => Position) private _positions;
     mapping(uint256 => address) private _owners;
     mapping(address => uint256) private _balances;
+    mapping(uint256 => mapping(uint256 => bool)) private _positionsUsed;
 
     uint256 public propertyID;
 
@@ -22,7 +25,15 @@ contract Property is ERC721{
         _owner = msg.sender;
     }
 
-    function mint(uint256 x,uint256 y) public {
+    modifier _positionUsed(uint256 x, uint256 y) {
+        if(_positionsUsed[x][y] == true){
+            revert POSITION_ALREADY_USED(x,y);
+        }
+        _positionsUsed[x][y] = true;
+        _;
+    }
+
+    function mint(uint256 x,uint256 y) public _positionUsed(x,y) {
         propertyID++;
         _mint(msg.sender,propertyID);
         _positions[propertyID] = Position(x,y);
