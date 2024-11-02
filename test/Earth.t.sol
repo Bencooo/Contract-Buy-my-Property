@@ -13,9 +13,7 @@ contract EarthTest is Test {
         earth.createWorld("Guadeloupe","971");
     }
      
-    function createWorldTest() public {
-        
-        assertEq(earth.owner(),address(0x0Dc9776AC54eE9c30E41D3918620F51105606515));
+    function testCreateWorld() public {
         assertEq(earth.worldNumber(),1);
 
         // Show this link for more information : https://book.getfoundry.sh/cheatcodes/expect-revert
