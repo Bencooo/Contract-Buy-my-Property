@@ -8,6 +8,8 @@ contract Earth {
     error NAME_OF_WORLD_ALREADY_USED(string);
     error SYMBOL_OF_WORLD_ALREADY_USED(string);
 
+    event WORLD_CREATED(string,string);
+
     address private _owner;
 
     mapping(uint256 => Property) private _properties;
@@ -46,7 +48,10 @@ contract Earth {
         worldNumber++;
         Property newWorld = new Property(_name,_symbol);
         _properties[worldNumber] = newWorld;
+        emit WORLD_CREATED(_name,_symbol);
     }
+
+    
 
 
 }

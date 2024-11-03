@@ -7,6 +7,8 @@ contract Property is ERC721{
     
     error POSITION_ALREADY_USED(uint256,uint256);
 
+    event PROPERTY_MINTED(uint256,uint256);
+
     address private _owner;
     
     struct Position{
@@ -37,6 +39,7 @@ contract Property is ERC721{
         propertyID++;
         _mint(msg.sender,propertyID);
         _positions[propertyID] = Position(x,y);
+        emit PROPERTY_MINTED(x,y);
     }
 
     function transfer(address _to,uint256 _propertyID) public {

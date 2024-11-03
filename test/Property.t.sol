@@ -14,8 +14,9 @@ contract PropertyTest is Test {
     }
      
     function testMint() public {
+    
         assertEq(property.propertyID(), 1);
-        // Show this link for more information : https://book.getfoundry.sh/cheatcodes/expect-revert
+        // Show more information on this link : https://book.getfoundry.sh/cheatcodes/expect-revert
         vm.expectRevert(abi.encodeWithSelector(Property.POSITION_ALREADY_USED.selector,15,8));
         property.mint(15,8);
     }

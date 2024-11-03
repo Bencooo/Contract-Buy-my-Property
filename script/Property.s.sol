@@ -7,9 +7,7 @@ import {Property} from "../src/Property.sol";
 contract PropertyScript is Script {
     Property public property;
 
-    function setUp() public {
-        property = new Property("Guadeloupe","971");
-    }
+    function setUp() public {}
 
     function run() public {
         vm.startBroadcast();
