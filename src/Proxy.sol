@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 contract Proxy {
 
     error DELEGATION_FAILED();
+    error PERMISSION_DENIED(address);
 
     address private _owner;
     address public impl;
@@ -20,6 +21,13 @@ contract Proxy {
         if(!success){
             revert DELEGATION_FAILED();
         }
+    }
+
+    function setImpl(address _impl) external {
+        if(msg.sender != _owner){
+            revert PERMISSION_DENIED(msg.sender);
+        }
+        impl = _impl;
     }
 
 }
