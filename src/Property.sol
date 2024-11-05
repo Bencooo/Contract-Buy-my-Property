@@ -26,7 +26,7 @@ contract Property is ERC721 {
         _owner = msg.sender;
     }
 
-    modifier _positionUsed(uint256 x, uint256 y) {
+    modifier _positionNotUsed(uint256 x, uint256 y) {
         if (_positionsUsed[x][y] == true) {
             revert POSITION_ALREADY_USED(x, y);
         }
@@ -34,7 +34,7 @@ contract Property is ERC721 {
         _;
     }
 
-    function mint(uint256 x, uint256 y) public _positionUsed(x, y) {
+    function mint(uint256 x, uint256 y) public _positionNotUsed(x, y) {
         propertyID++;
         _mint(msg.sender, propertyID);
         _positions[propertyID] = Position(x, y);
