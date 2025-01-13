@@ -46,13 +46,21 @@ contract World {
         _balances[_to]++;
     }
 
-    function _transferFrom(address _from, address _to, uint256 _propertyID) internal {
+    function _transferFrom(
+        address _from,
+        address _to,
+        uint256 _propertyID
+    ) internal {
         _balances[_from]--;
         _owners[_propertyID] = _to;
         _balances[_to]++;
     }
 
-    function _addingPosition(uint256 _propertyID, uint256 _x, uint256 _y) internal {
+    function _addingPosition(
+        uint256 _propertyID,
+        uint256 _x,
+        uint256 _y
+    ) internal {
         _positionOfProperty[_propertyID] = Position(_x, _y);
         _registerPosition[_x][_y] = true;
     }
@@ -87,11 +95,16 @@ contract World {
         return numberOfProperty;
     }
 
-    function getPositionOf(uint256 _propertyID) public view returns (Position memory) {
+    function getPositionOf(
+        uint256 _propertyID
+    ) public view returns (Position memory) {
         return _positionOfProperty[_propertyID];
     }
 
-    function isPositionAvailable(uint256 _x, uint256 _y) public view returns (bool) {
-    return !_registerPosition[_x][_y];
-}
+    function isPositionAvailable(
+        uint256 _x,
+        uint256 _y
+    ) public view returns (bool) {
+        return !_registerPosition[_x][_y];
+    }
 }
