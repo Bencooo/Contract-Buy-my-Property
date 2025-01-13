@@ -90,4 +90,8 @@ contract World {
     function getPositionOf(uint256 _propertyID) public view returns (Position memory) {
         return _positionOfProperty[_propertyID];
     }
+
+    function isPositionAvailable(uint256 _x, uint256 _y) public view returns (bool) {
+    return !_registerPosition[_x][_y];
+}
 }
