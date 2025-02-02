@@ -13,7 +13,7 @@ contract EarthTest is Test {
     }
 
     function testOwner() public {
-        assertEq(address(this),earth.owner());
+        assertEq(address(this), earth.owner());
     }
 
     function testCreateWorld() public {
