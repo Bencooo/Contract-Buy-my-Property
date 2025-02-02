@@ -17,6 +17,10 @@ contract ProxyTest is Test {
     function testSetImpl() public {
         proxy.setImpl(address(earth));
         assertEq(proxy.impl(), address(earth));
+        vm.startPrank(address(0x12));
+        vm.expectRevert(abi.encodeWithSelector(Proxy.PERMISSION_DENIED.selector,address(0x12)));
+        proxy.setImpl(address(earth));
+        vm.stopPrank();
     }
 
     function testFallback() public {

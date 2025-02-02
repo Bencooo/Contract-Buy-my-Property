@@ -12,6 +12,10 @@ contract EarthTest is Test {
         earth.createWorld("Guadeloupe", "971");
     }
 
+    function testOwner() public {
+        assertEq(address(this),earth.owner());
+    }
+
     function testCreateWorld() public {
         assertEq(earth.worldNumber(), 1);
 
