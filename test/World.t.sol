@@ -33,7 +33,7 @@ contract WorldTest is Test {
     }
 
     function testPositionAvailable() public {
-        world.min(1,1);
+        world.mint(1,1);
         assertEq(false,world.isPositionAvailable(1,1));
     }
 
