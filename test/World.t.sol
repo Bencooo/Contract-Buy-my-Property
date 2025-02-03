@@ -25,7 +25,7 @@ contract WorldTest is Test {
         world.mint(1, 1);
         vm.expectRevert(abi.encodeWithSelector(World.POSITION_ALREADY_USED.selector, 1, 1));
         world.mint(1, 1);
-        Position pos = world.getPositionOf(0);
+        Position memory pos = world.getPositionOf(0);
         assertEq(pos.x, 1);
         assertEq(pos.y, 1);
         assertEq(world.getNumberOfProperties(), 1);
