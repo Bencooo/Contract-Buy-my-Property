@@ -11,6 +11,7 @@ contract PropertyScript is Script {
 
     function run() public {
         vm.startBroadcast();
+        property = new Property("Gwada","971");
         vm.stopBroadcast();
     }
 }
