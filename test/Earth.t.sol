@@ -13,7 +13,7 @@ contract EarthTest is Test {
     }
 
     function testCreateWorld() public {
-        assertEq(earth.owner(),address(this));
+        assertEq(earth.owner(), address(this));
         assertEq(earth.worldNumber(), 1);
 
         // // Show more information on this link : https://book.getfoundry.sh/cheatcodes/expect-emit
