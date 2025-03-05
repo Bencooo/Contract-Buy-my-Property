@@ -23,12 +23,12 @@ contract WorldTest is Test {
 
     function testMint() public {
         world.mint(1, 1);
+        assertEq(world.isPositionAvailable(1,1),false);
         vm.expectRevert(abi.encodeWithSelector(World.POSITION_ALREADY_USED.selector, 1, 1));
         world.mint(1, 1);
-        Position memory pos = world.getPositionOf(0);
-        assertEq(pos.x, 1);
-        assertEq(pos.y, 1);
-        assertEq(world.getNumberOfProperties(), 1);
+        assertEq(world.getPositionOf(0).x, 1);
+        assertEq(world.getPositionOf(0).y, 1);
+        assertEq(world.numberOfProperty(), 1);
         assertEq(world.ownerOf(0),msg.sender);
     }
 

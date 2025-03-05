@@ -11,7 +11,7 @@ contract WorldV2 {
     string public name;
     string public symbol;
 
-    uint256 numberOfProperty;
+    uint256 public numberOfProperty;
 
     mapping(uint256 propertyID => address) private _owners;
     mapping(address owner => uint256) private _balances;
@@ -93,5 +93,12 @@ contract WorldV2 {
     function transfer(address _to, uint256 _propertyID) public _isOwner(tx.origin, _propertyID) {
         _update(_to, _propertyID);
         emit Transfer(tx.origin, _to, _propertyID);
+    }
+
+    function isPositionAvailable(
+        uint256 _x,
+        uint256 _y
+    ) public view returns (bool) {
+        return !_registerPosition[_x][_y];
     }
 }

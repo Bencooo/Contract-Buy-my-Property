@@ -9,7 +9,7 @@ contract World {
     string public name;
     string public symbol;
 
-    uint256 numberOfProperty;
+    uint256 public numberOfProperty;
 
     mapping(uint256 propertyID => address) private _owners;
     mapping(address owner => uint256) private _balances;
@@ -91,9 +91,6 @@ contract World {
         return _owners[_propertyID];
     }
 
-    function getNumberOfProperties() public view returns (uint256) {
-        return numberOfProperty;
-    }
 
     function getPositionOf(
         uint256 _propertyID

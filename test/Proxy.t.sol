@@ -37,7 +37,7 @@ contract ProxyTest is Test {
         vm.expectRevert(abi.encodeWithSelector(WorldV2.POSITION_ALREADY_USED.selector, 1, 12));
         aProxy.call(abi.encodeWithSignature("mint(uint256,uint256)", 1, 12));
         aProxy.call(abi.encodeWithSignature("mint(uint256,uint256)", 2, 12));
-        assertEq(proxy.getNumberOfProperties(), 2, "Number of properties not matched");
+        assertEq(proxy.numberOfProperty(), 2, "Number of properties not matched");
     }
 
     function testTransferDelegate() public {

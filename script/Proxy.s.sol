@@ -23,7 +23,7 @@ contract DeployProxy is Script {
         //world.mint(1, 2);
 
         // Récupère la valeur numberOfProperty
-        uint256 totalProperties = world.getNumberOfProperties();
+        uint256 totalProperties = world.numberOfProperty();
         console.log("Nombre total de proprio mint :", totalProperties);
 
         // (Optionnel) Déploiement de WorldV2
