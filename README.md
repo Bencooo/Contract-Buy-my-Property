@@ -1,66 +1,79 @@
-## Foundry
+# 🌍 World & Proxy Contracts
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## **World Contract**
 
-Foundry consists of:
+🛠 **World.sol** is a semi-ERC721 contract that stores all properties of the **World** game.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## **Proxy Contract**
 
-## Documentation
+🔄 **Proxy.sol** is the contract used to interact with **World.sol**. All operations performed through **Proxy** are stored in its storage, allowing you to **change the delegation address without losing registered data**.
 
-https://book.getfoundry.sh/
+---
 
-## Usage
+## **🚀 Foundry - Ethereum Development Toolkit**
 
-### Build
+**Foundry** is a blazing-fast, portable, and modular toolkit for Ethereum application development, written in **Rust**.
 
-```shell
-$ forge build
+### **📌 Foundry consists of:**
+
+- 🏗 **Forge**: Ethereum testing framework (similar to **Truffle, Hardhat, and DappTools**).
+- 🔧 **Cast**: A powerful tool for interacting with smart contracts, sending transactions, and fetching on-chain data.
+- ⚡ **Anvil**: A local Ethereum node (like **Ganache** or **Hardhat Network**).
+- 🛠 **Chisel**: A fast and utilitarian Solidity REPL.
+
+📖 **Complete Documentation:** [Foundry Book](https://book.getfoundry.sh/)
+
+---
+
+## **🚀 Useful Commands**
+
+### **📌 Build the project**
+```sh
+forge build
 ```
 
-### Test
-
-```shell
-$ forge test
+### **📌 Run tests** 🧪
+```sh
+forge test
 ```
 
-### Format
-
-```shell
-$ forge fmt
+### **📌 Format Solidity code** 🎨
+```sh
+forge fmt
 ```
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
+### **📌 Analyze gas costs** ⛽
+```sh
+forge snapshot
 ```
 
-### Anvil
-
-```shell
-$ anvil
+### **📌 Start a local node (Anvil)** ⚙️
+```sh
+anvil
 ```
 
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+### **📌 Deploy a contract** 🚀
+```sh
+forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
 
-### Cast
-
-```shell
-$ cast <subcommand>
+### **📌 Use Cast** 🛠
+```sh
+cast <subcommand>
 ```
 
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+### **📌 Get help on Foundry** 📚
+```sh
+forge --help
+anvil --help
+cast --help
 ```
+
+---
+
+## **💡 Final Notes**
+✅ **Modularity & Speed**: Foundry is designed to be faster and more flexible than traditional alternatives.
+✅ **Interoperability**: Fully compatible with existing Solidity tools.
+✅ **Developer Experience**: Intuitive API and comprehensive documentation.
+
+🔥 **Develop, test, and deploy faster with Foundry!**
